@@ -15,24 +15,24 @@ def main():
     # lists
     r.lpush("people", 1)
     r.lpush("people", 2, 3, 4)
-    folks = r.lrange("people", 0, 3)
+    folks = r.lrange("people", 0, -1)
     print(folks)
-
-    # sets
-    r.sadd('carmakes', 'Honda', 'Toyota', 'Toyota', 'Acura')
-    cars = r.smembers('carmakes')
-    print(cars)
-
-    # sorted sets
-    r.zadd('ratings', {'Interstellar': 10})
-    r.zadd('ratings', {'Star Wars': 9})
-    r.zadd('ratings', {'Moonfall': 2})
-
-    ratings = r.zrange('ratings', 0, -1)
-    good_movies = r.zrangebyscore('ratings', 9, 10)
-    print(ratings)
-    print(good_movies)
-
+#
+#     # sets
+#     r.sadd('carmakes', 'Honda', 'Toyota', 'Toyota', 'Acura')
+#     cars = r.smembers('carmakes')
+#     print(cars)
+#
+#     # sorted sets
+#     r.zadd('ratings', {'Interstellar': 10})
+#     r.zadd('ratings', {'Star Wars': 9})
+#     r.zadd('ratings', {'Moonfall': 2})
+#
+#     ratings = r.zrange('ratings', 0, -1)
+#     good_movies = r.zrangebyscore('ratings', 9, 10)
+#     print(ratings)
+#     print(good_movies)
+#
     # hashmaps
     r.hset('user:john', 'name', 'John')
     r.hset('user:john', mapping={'name': 'John', 'age': 29, 'email': 'john@aol.com'})

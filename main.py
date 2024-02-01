@@ -24,7 +24,7 @@ def main():
 
     # add tweets
     start_time = time.time()
-    df_tweets = pd.read_csv("tweet.csv")
+    df_tweets = pd.read_csv("HW2 Files/tweet.csv")
     for idx, row in df_tweets.iterrows():
         tweet = Tweet(user_id = row[0], tweet_text = row[1])
         api.post_tweet(tweet)
