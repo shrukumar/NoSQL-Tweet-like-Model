@@ -8,13 +8,13 @@ def main():
     api = TwitterAPI2()
 
     # adding followers
-    api.populate_followers('follows_sample.csv')
+    api.populate_followers('follows.csv')
 
     # start timer for posts
     start_time = time.time()
 
     # adding tweets
-    df_tweets = pd.read_csv('tweets_sample.csv')
+    df_tweets = pd.read_csv('tweet.csv')
     for idx, row in df_tweets.iterrows():
         tweet = Tweet(tweet_id = idx, user_id=row[0], tweet_text=row[1], tweet_ts = time.ctime())
         api.post_tweet(tweet)
@@ -28,7 +28,7 @@ def main():
 
     # start timer for timelines
     start_time1 = time.time()
-    while time_elapsed1 < 6:
+    while time_elapsed1 < 60:
         # retrieve timelines for random users
         user, timeline = api.get_timeline()
         # printing timelines tweet by tweet
